@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author jonathan
+ */
+import java.io.*;
+import java.util.*;
+
+public class VowelConsonantSeparator {
+    public static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        try {
+            int intElements = 0;
+            String result = null, strElements = null,element = null;
+            System.out.print("Enter number of elements: ");
+            strElements = br.readLine().replaceAll("\\D+","");
+            intElements = Integer.parseInt(strElements);
+            String[] array = new String[intElements];
+            for (int x = 0; x < array.length; x++){
+                System.out.print("Enter element "+x+": ");
+                element = br.readLine().replaceAll("[^a-zA-Z].*", "").toUpperCase();
+                array[x] = element.substring(0, 1);
+            }
+            System.out.print("Vowels: ");
+            for (int x = 0; x < array.length; x++){
+                if ((array[x].equalsIgnoreCase("a"))||(array[x].equalsIgnoreCase("e"))||
+                     (array[x].equalsIgnoreCase("i"))||(array[x].equalsIgnoreCase("o"))||
+                     (array[x].equalsIgnoreCase("u"))){
+                    System.out.print(" "+array[x]+" ");
+                }
+            }
+            System.out.print("\nConsonants: ");
+            for (int x = 0; x < array.length; x++){
+                if ((array[x].equalsIgnoreCase("a"))||(array[x].equalsIgnoreCase("e"))||
+                     (array[x].equalsIgnoreCase("i"))||(array[x].equalsIgnoreCase("o"))||
+                     (array[x].equalsIgnoreCase("u"))){
+                } else {
+                    System.out.print(" "+array[x]+" ");
+                }
+            }
+        } catch (IOException ex) {
+            System.out.println("Invalid input.");
+        }
+    }
+}
